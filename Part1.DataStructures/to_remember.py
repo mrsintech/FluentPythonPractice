@@ -60,7 +60,7 @@ def spades_high(card):
     
 def sortDeck():
     deck = FrenchDeck()
-    for card in sorted(deck, key=spades_high, reverse=True): # Nice!
+    for card in sorted(deck, key=spades_high, reverse=True): # type: ignore # Nice!
         print(card)
 
 # sortDeck()
