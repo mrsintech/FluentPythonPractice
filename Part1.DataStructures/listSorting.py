@@ -20,19 +20,19 @@ li.sort(reverse=True)
 
 res = sorted(li, reverse=True)
 
-# key:
 # key is a 1 arg function that will applied to each item to produce its sorting key.
 # default of key is the identity function
 res = sorted(li, key=str.lower) # compare case-insensitive
 res = sorted(li, key=len) # compare by length of item
 res = sorted(li, key=max)
-
+res = sorted(li, key=min)
 # that can be very useful, NICE!
 
-
-
+# NOTE: by default python sorts strings lexicographically by character code. that means
+    # ASCII uppercase letters come before lowercase letters. and non-ASCII chars are
+    # unlkely to be sorted in a sensible way.
+    
 print(res)
-print(max("johnsnow"))
 
 
 
