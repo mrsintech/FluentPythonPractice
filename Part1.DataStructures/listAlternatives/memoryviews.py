@@ -2,12 +2,12 @@ from array import array
 from locale import MON_1
 
 # -=-=-=-=-=-=- MEMORY VIEW -=-=-=-=-=-=- #
-# the built-in memoryview class is a shared-memory sequence type that lets you 
-    # handle slices of arrays without copying bytes.
+# the built-in memoryview class is a shared-memory sequence type that lets you
+# handle slices of arrays without copying bytes.
 
-# the memoryview.cast method lets you change the way multiple bytes are read or 
-    # written as units without moving bits around.
-    
+# the memoryview.cast method lets you change the way multiple bytes are read or
+# written as units without moving bits around.
+
 
 octest = array('B', range(6))
 
@@ -29,27 +29,14 @@ m3[1, 1] = 33  # type: ignore
 
 print(octest)
 # so, every change i make to octest, m1, m2, m3 every one of then will change,
-    # because they share same memory.
+# because they share same memory.
 
-# if the array is not in byte the memory view can be a bad choice!
+# if the array is not in bytes, the memory view can be a bad choice!
 nums = array('h', [-2, -1, 0, 1, 2])
 memv = memoryview(nums)
 print(memv[0])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+memv_oct = memv.cast("B")
+print(memv_oct.tolist())
+memv_oct[5] = 4
+print(nums)

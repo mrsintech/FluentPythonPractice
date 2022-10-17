@@ -64,13 +64,8 @@ def sortDeck():
         print(card)
 
 # sortDeck()
-def experiments():
-    a = 5
-    b = 6
-    a += b
-    print(a)
     
 # optional keyword argument #TODO
 
- 
+sortDeck()
 

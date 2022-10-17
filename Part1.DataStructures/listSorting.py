@@ -2,14 +2,14 @@
 # -=-=-=-=-=-=- list.sort vs built-in sorted -=-=-=-=-=-=- #
 # the list.sort method sorts a list in place, without making a copy
 # NOTE: important Python API convention: functions or methods that return None,
-    # that means they changed the object in place and no new object is created.
+# that means they changed the object in place and no new object is created.
 
 li = ["tywin", "daenerys", "Tyrion", "johnsnow"]
 li.sort()
 res = li
 
 # but, the built-in sorted method, creates a new object (list) and returns it.
-    # therefor it can accept any object including immutable sequences and generatos.
+# therefor it can accept any object including immutable sequences and generatos.
 li = ["tywin", "daenerys", "Tyrion", "johnsnow"]
 res = sorted(li)
 
@@ -22,33 +22,14 @@ res = sorted(li, reverse=True)
 
 # key is a 1 arg function that will applied to each item to produce its sorting key.
 # default of key is the identity function
-res = sorted(li, key=str.lower) # compare case-insensitive
-res = sorted(li, key=len) # compare by length of item
+res = sorted(li, key=str.lower)  # compare case-insensitive
+res = sorted(li, key=len)  # compare by length of item
 res = sorted(li, key=max)
 res = sorted(li, key=min)
 # that can be very useful, NICE!
 
 # NOTE: by default python sorts strings lexicographically by character code. that means
-    # ASCII uppercase letters come before lowercase letters. and non-ASCII chars are
-    # unlkely to be sorted in a sensible way.
-    
+# ASCII uppercase letters come before lowercase letters. and non-ASCII chars are
+# unlkely to be sorted in a sensible way.
+
 print(res)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,2 +1,5 @@
 FluentPythonGithubSource
 *.bin
+floats-10M-lines.txt
+floats-10M.npy
+
