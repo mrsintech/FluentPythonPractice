@@ -1,4 +1,5 @@
 from random import shuffle
+
 # build a list of unicode code points from a string (without listcomps)
 symbols = '$¢£¥€¤'
 codes   = []

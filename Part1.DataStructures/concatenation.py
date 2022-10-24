@@ -58,4 +58,6 @@ a += b
 
 # ProTip: Avoid using mutable items in tuple
 
+# tuples often hold items of different types.
+
 print(res)
