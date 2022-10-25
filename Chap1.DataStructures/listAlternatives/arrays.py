@@ -23,7 +23,7 @@ from random import random
 # -=-=-=-=-=-=- List vs Array -=-=-=-=-=-=- #
 # let's compair list and array speed
 
-obj_count = int(10**7)
+obj_count = int(10**8)
 print("testing speed difference between list and array",
       f"obj count {obj_count}")
 
@@ -45,7 +45,7 @@ li_put_time = (after_t - before_t).seconds
 
 print("getting list last item:")
 before_t = datetime.now()
-item = nums_l[int(2**7.9)]
+item = nums_l[int(obj_count-1)]
 after_t = datetime.now()
 li_get_time = ((after_t - before_t).microseconds, item)
 print("list done.", "--------------------")
@@ -78,7 +78,7 @@ li_put_time = (after_t - before_t).seconds
 
 print("getting array last item:")
 before_t = datetime.now()
-item = nums_a[int(2**7.9)]
+item = nums_a[int(obj_count-1)]
 after_t = datetime.now()
 ar_get_time = ((after_t - before_t).microseconds, item)
 print("Array Done.", "--------------------")
