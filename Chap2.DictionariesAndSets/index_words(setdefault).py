@@ -1,3 +1,4 @@
+from collections import defaultdict
 import re
 import sys
 
@@ -36,6 +37,18 @@ with open(file, encoding="utf-8") as fp:
             # occurrences for word, or set it to [] if not found; setdefault
             # returns the value, so it can be updated
             # without requiring a second search. <-----------------------------
+
+# even better?
+# we can use defaultdict
+index = defaultdict(list)
+with open(file, encoding="utf-8") as fp:
+    for line_no, line in enumerate(fp, 1):  # enumerate(iterable, start_from)
+        # finditer search for matches with WORD_RE and yields them one by one
+        for match in WORD_RE.finditer(line):
+            word = match.group()
+            column_no = match.start() + 1
+            loc = (line_no, column_no)
+            index[word].append(loc)
 
 # display words in sorted
 for word in sorted(index.keys(), key=str.upper):
