@@ -22,3 +22,6 @@ print(vals)
 # only the __len__, __iter__, and __reversed__ special methods. In addition to
 # these meth‐ ods, dict_keys and dict_items implement several set methods,
 # almost as many as the frozenset class.
+
+# for dict.keys, dict.items the & opertator always return a set
+# set operators in dictionary views are compatible with set instances.
