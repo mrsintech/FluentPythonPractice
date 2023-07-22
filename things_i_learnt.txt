@@ -1,3 +1,0 @@
-slicing
-multidimentional slicing
-list.sort()

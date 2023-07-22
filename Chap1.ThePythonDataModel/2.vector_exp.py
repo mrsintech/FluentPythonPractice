@@ -1,5 +1,11 @@
 import math
 
+"""
+A class to represent n Dimention vectors The built-in complex type can be used
+to represent twodimensional vectors, but our class can be extended to represent 
+n-dimensional vectors.
+"""
+
 class Vector:
     
     def __init__(self, x=0, y=0):
@@ -7,13 +13,14 @@ class Vector:
         self.y = y
         
     def __repr__(self):
-        return f'Vector({self.x!r}, {self.y!r})' # !r to standard represention of value (e.g if val='23' it will print '23')
+    # !r to standard represention of value (e.g if val='23' it will print '23')
+        return f'Vector({self.x!r}, {self.y!r})' 
     
     def __abs__(self):
         return math.hypot(self.x, self.y) # moadele fisaghores
     
     def __bool__(self):
-        return bool(abs(self))
+        return bool(abs(self.x or self.y                                                                 ))
     
     def __add__(self, other):
         x = self.x + other.x
@@ -30,5 +37,8 @@ class Vector:
     
 v = Vector(0, 1)
 v2 = Vector(2, 3)
-print(bool(v))
+v3 = v + v2
+print(v3)
+print(v2*3)
+print(abs(v2*3))
 
