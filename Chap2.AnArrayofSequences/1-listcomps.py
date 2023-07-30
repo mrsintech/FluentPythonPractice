@@ -19,15 +19,6 @@ code = [
     for b in reversed(chars)
 ]
 
-# Walrus operator
-chars = 'qwerty'
-l = list(chars)
-shuffle(l)
-chars = ''.join(l)
-
-code = [y := x for x in chars]
-
-
 # implement listcomp with filter and map
 symbols = '$¢£¥€¤'
 code = [ord(s) for s in symbols if ord(s) > 127]
@@ -35,6 +26,7 @@ code = [ord(s) for s in symbols if ord(s) > 127]
 
 code = list(filter(lambda c: c > 127, map(ord, symbols)))  # learn in future
 # print(code)
+print(list(map(ord, symbols)))
 
 # Cartesian Products for t-shirts mix with size and color
 colors = ['red', 'white']

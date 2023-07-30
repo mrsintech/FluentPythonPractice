@@ -5,6 +5,8 @@ Core Principles in this Chapter:
     - Types of sequences by its way of storing data (see TypesofSequences.png)
     - Types of sequences by Mutability(see TypesofSequencesbyMutability.png)
     - list comprehensions
+    - walrus operator
+    - generator expressions
     
 - The ABC Language:
     the ABC in the ancestor of Python.
@@ -93,6 +95,106 @@ NOTE: Why flat sequences are much more compact?
         because a loop can do many things, but a listcomp is more explicit.
         Its goal is always to build a new list.
     
+    - Where should we not use listcomps?
+        If you are not doing something with the produced list, you should not
+        use that syntax. Also, try to keep it short. If the list comprehension
+        spans more than two lines, it is probably best to break it apart or
+        a plain old for loop.
+        
+    - Listcomps Scope:
+        list comprehensions, generator expressions, and their siblings set and
+        dict comprehensions, have a local scope to hold the variables assigned
+        in the for clause.
+        
+        However, variables assigned with the “Walrus operator” := remain
+        accessible after those comprehensions or expressions return—unlike
+        local variables in a function. PEP 572—Assignment Expressions defines
+        the scope of the target of := as the enclosing function, unless there
+        is a global or nonlocal declaration for that target.
 
+    - Walrus Operator :=
+        The walrus operator allows you to assign a value to a variable as part
+        of an expression. It helps to simplify code by allowing you to perform
+        an assignment and use the assigned value in a single expression.
+    
+    - Map and Filter:
+        Map and filter pair can use to do the listcomp job, but it adds more 
+        complexity into the code and make no difference in case of performance.     
+    
+    PROJECT: Cartesian Product (Zarb Dekarti) with listcomps
+        Listcomps can build lists from the Cartesian product of two or more
+        iterables. The items that make up the Cartesian product are tuples made
+        from items from every input iterable. The resulting list has a length
+        equal to the lengths of the input iterables multiplied.
+        [(v1, v2) for v1 in v1s for v2 in v2s]
+        is equal to: 
+        for v1 in v1s:
+            for v2 in v2s:
+                list.append((v1, v2))
+    
+- Generator Expressions:
+    GeneratorExpressions or genexp is the equivalent of listcomp for other
+    types of sequences (tuple, array , ...)
+    
+    Genexps use the same syntax as listcomps, but are enclosed in parentheses
+    rather than brackets.
 
+    one of the differences between genexp and listcomp is that the listcomp
+    dont need to be specified to create a list e.g list[listcomp] and it just
+    need to eclosed in brackets []
+    but genexp need to be specified like tuple(genexp) or 
+    array.array('I', (genexp))
+    
+NOTE: key difference between listcomp and genexp
+    imagine you need a sequence to feed a for loop, the  listcomp always build
+    the sequence completly if used in a for loop it first build the list and
+    then feed it into for loop, but if genexp is used instead of listcomp it
+    dont build sequence completey and then feed into for loop, instead it build
+    the sequence one item at a time and turn loop once,hence it dont take resources 
+    to buld a sequence just to feed a foor loop, its faster.
+    
+-=-=-=-=-=- ADDITIONALS -=-=-=-=-=-
+enclosing function : 
+    An "enclosing function" refers to a function that contains another
+    function, often referred to as a "nested function" or "inner function."
+    In Python, when a function is defined inside another function, it
+    becomes a nested function, and the enclosing function is the one that
+    contains the nested function.
+        
+lambda :
+    In Python, a lambda function is a small anonymous function that can
+    have any number of input parameters but can only have one
+    expression. It is also known as a "lambda expression" or
+    "lambda form."
+    square = lambda x: x ** 2
+    result = square(5)
+        
+map() :
+    map() is a built-in function that applies a given function to all
+    the items in an iterable (e.g., a list, tuple, or string) and
+    returns an iterator that yields the results. It takes two or more
+    arguments: the first argument is the function to apply, and the
+    subsequent arguments are the iterables on which the function should
+    be applied.
+    
+filter() : 
+    In Python, filter() is another built-in function that offers a way
+    to filter elements from an iterable (e.g., list, tuple, or string)
+    based on a given function's conditions. It returns an iterator
+    containing only the elements for which the function returns True.
+    
+    filter(function, iterable)
+    
+array.array():
+    array.array is a built-in module in Python that provides an array object
+    which is similar to a list, but with a more efficient memory representation
+    It allows you to create arrays of a specific data type, which leads to more
+    compact and faster data storage and manipulation compared to regular Python
+    lists.
+    the first argument in array.array defines the storage type
+
+a little NOTE for tuple and array:
+    based on my examination the tuple has less size than array if the sequence
+    len is little, but it will increase more than array if items are much.
+        
 """
