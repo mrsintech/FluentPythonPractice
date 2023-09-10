@@ -38,8 +38,8 @@ Core Principles in this Chapter:
         Some examples: list, tuple, and collections.deque.
         
         - How Container Sequence Store Data?
-            A container sequence holds references to the objects it contains,
-            which may be of any type
+            A container sequence holds references(pointer) to the objects it
+            contains, which may be of any type
 
     - Flat sequences:
         Hold items of one simple type.
@@ -51,7 +51,7 @@ Core Principles in this Chapter:
             
     flat sequences are more compact, but they are limited to holding primitive
     machine values like bytes, integers, and floats. 
-    But Container Sequences take more space in memory but they can hold more
+    Container Sequences take more space in memory but they can hold more
     types of data.
     
 NOTE: arrays in python are in C
