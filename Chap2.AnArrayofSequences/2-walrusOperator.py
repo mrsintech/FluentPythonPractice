@@ -1,4 +1,6 @@
 # Walrus operator
+from random import shuffle
+
 chars = 'qwerty'
 l = list(chars)
 shuffle(l)

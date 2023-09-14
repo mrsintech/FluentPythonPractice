@@ -7,6 +7,7 @@ Core Principles in this Chapter:
     - list comprehensions
     - walrus operator
     - generator expressions
+    - tuples
     
 - The ABC Language:
     the ABC in the ancestor of Python.
@@ -150,9 +151,59 @@ NOTE: key difference between listcomp and genexp
     the sequence completly if used in a for loop it first build the list and
     then feed it into for loop, but if genexp is used instead of listcomp it
     dont build sequence completey and then feed into for loop, instead it build
-    the sequence one item at a time and turn loop once,hence it dont take resources 
-    to buld a sequence just to feed a foor loop, its faster.
+    the sequence one item at a time and turn loop once,hence it dont take
+    resources to build a sequence just to feed a foor loop, its faster.
     
+- tuples
+    how tuples data store in memory? (see tupleDataStructure.png)
+        the tuple contains refrences or pointers to the objects it contains
+        (like lists) and if tuple contains a refrence to a list or any other 
+        mutable objects, it's sub-object can change or modify but it cannot 
+        delete compeletly from tuple, only item that it contains can change.
+    
+    tuples do double duty: 
+        1- they can be used as immutable lists.
+        2- as records with no field names.
+    
+    tuples as records with no names:
+            tuples hold records, each item in tuple holds the data for one field,
+            and the position of the item gives its meaning.
+
+        NOTE: if we have a list of tuples we can get each element of tuples
+        seperatly by:
+            list_of_data = [(0,1),(2,3)]
+            for fn, _ in list_of_data: _ is used for unnecessary items of tuple
+                print(fn)
+
+        with tuples you can specify multiple variables at one line of code:
+            city, year, pop, chg, area = ('Tokyo', 2003, 32_450, 0.66, 8014)
+            this line will declare each variable with its related order in tuple.
+            
+        NOTE: the  %s is obselete use str.format() instead.
+        
+        what is unpacking?
+            the  for loop knows how to retirieve the items of tuple seperately,
+            this is unpacking.
+        
+            with unpacking theres no need to go through the trouble of creating
+            class just to name the fields, especially if you leverage unpacking
+            and avoid using indexes to access the fields.
+            the term tuple unpacking is widely used but, iterable unpacking is
+            gaining traction.
+        
+    tuples as immutable lists:
+        there's 2 key benefits in using tuples as immutable lists:
+            1- calrity
+                when you see a tuple you know its length is fixed.
+            
+            2- performance:
+                a tuple uses less memory than a list of the same length.
+                
+    
+        
+        
+    
+
 -=-=-=-=-=- ADDITIONALS -=-=-=-=-=-
 enclosing function : 
     An "enclosing function" refers to a function that contains another
