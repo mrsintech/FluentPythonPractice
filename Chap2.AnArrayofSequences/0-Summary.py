@@ -8,6 +8,7 @@ Core Principles in this Chapter:
     - walrus operator
     - generator expressions
     - tuples
+    - unpacking
     
 - The ABC Language:
     the ABC in the ancestor of Python.
@@ -258,7 +259,56 @@ NOTE: key difference between listcomp and genexp
         they both set the item in index p to e, insert will shift items to
         right and won't delete anything, but __setitem__ will delete value of
         [p] and put e instead of it, its equal to [p] = e.
+    
+---- 1/10/23
+- unpacking:
+    unpacking is important because it avoids unnecessary and error prone use of 
+    indexes to extract elements from sequences. also unpacking works with any 
+    iterable object as the data source including iterators, which dont support 
+    notation([]) 
+    (N) why unpacking is important?
+    the most visible form of unpacking is parrallel assignmant 
+    e.g a, b = (12, 13) -> a=12, b=13
+
+    an elegant application of unpacking is swapping values of variables without 
+    using a temporary variable
+    a, b = b, a # swapping variable
+    (N) what is best way of swapping variables in python?
+
+    with * before arguman, if arguman is a sequence the method will return multiple
+    values.
+    (N) what can a * do before an arguamn in function call
+
+    ADD: os.path.split() : os.path is a module in Python's standard library that
+    provides functions for working with file and directory paths in a
+    platform-independent way. It allows you to manipulate file and directory paths
+    regardless of whether you are running your Python code on a Windows, macOS, or
+    Linux system. This module is particularly useful for writing code that needs to
+    work on different operating systems without modification.
+    the split() method splits a file path into two components: the directory part
+    and the filename part. It returns a tuple containing these two components.
+
+    (N) what is os.path
+    (N) what is os.path.split
+
+    Using * to grab Excess Items:
+        using *args as variable will grab excess values 
+        a, b, *args = range(5)
+        (0, 1, [2, 3, 4])
         
+        a, *body, b,c = range(5)
+        (0, [1, 2], 3, 4)
+        
+        
+        (N)whats use of *args as varables to grab excess items in parallel
+        assignment and in what type of sequence it will store it?
+        
+        NOTE: the * can only appear onve in every parallel assignment
+        (N) how mant times can we use *args in one assignment?
+        
+        
+        
+
     
 
 -=-=-=-=-=- ADDITIONALS -=-=-=-=-=-
